@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Implementasi JavaScript</title>
+    <style>
+        .container {
+            width: 300px;
+            padding: 20px;
+            background-color: rgb(102, 197, 229);
+            border: 1px solid #333;
+            font-family: Arial, sans-serif;
+        }
+        .komen{
+            background-color: rgb(31, 162, 48);
+            border: 3px solid #5b5555;
+            font-family: Arial, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Zulkifli Sedang Berulang Tahun</h3>
+    
+    <div id="hasilKomentar"></div>
+
+    <input type="text" id="inputKomentar" placeholder="Komentar..">
+    
+    <p id="statusKetik"></p>
+    
+    <button class="komen" id="btnKomentar">Komentar</button>
+</div>
+
+<script>
+    const input = document.getElementById('inputKomentar');
+    const status = document.getElementById('statusKetik');
+    const btn = document.getElementById('btnKomentar');
+    const output = document.getElementById('hasilKomentar');
+
+    // 1. Logika "Tampilan ketika Anda Mengetik"
+    input.addEventListener('input', function() {
+        if (input.value.length > 0) {
+            status.innerText = "Anda Sedang Mengetik...";
+        } else {
+            status.innerText = "";
+        }
+    });
+
+    
+    btn.addEventListener('click', function() {
+
+        output.innerText = "seseorang : " + input.value;
+        input.value = "";
+        status.innerText = "";
+    });
+</script>
+
+</body>
+</html>

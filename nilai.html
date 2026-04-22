@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Penginputan Nilai</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #hasil {
+            padding: 15px;
+            margin-top: 10px;
+            display: none; /* Disembunyikan saat awal */
+            font-weight: bold;
+        }
+        .container { border: 1px solid #ccc; padding: 20px; width: 300px; background-color: #fdfd96; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <label>Inputkan Nilai</label><br>
+    <input type="number" id="inputNilai">
+    <button id="btnCek">Nilai</button>
+
+    <div id="hasil"></div>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#btnCek').click(function() {
+        let nilai = parseInt($('#inputNilai').val());
+        let $hasil = $('#hasil');
+        
+        // Reset tampilan
+        $hasil.show();
+        $hasil.css('background-color', 'transparent');
+
+        // Logika penentuan nilai berdasarkan instruksi
+        if (nilai >= 85) {
+            $hasil.text("Mendapatkan Nilai A");
+            $hasil.css('background-color', 'green');
+            $hasil.css('color', 'white');
+        } 
+        else if (nilai >= 75 && nilai <= 79) {
+            $hasil.text("Mendapatkan Nilai B+");
+            $hasil.css('background-color', 'orange');
+            $hasil.css('color', 'black');
+        } 
+        else if (nilai >= 60 && nilai <= 64) {
+            $hasil.text("Mendapatkan Nilai C+");
+            $hasil.css('background-color', 'yellow');
+            $hasil.css('color', 'black');
+        } 
+        else if (nilai < 50) {
+            $hasil.text("Mendapatkan Nilai E");
+            $hasil.css('background-color', 'red');
+            $hasil.css('color', 'white');
+        } 
+        else {
+            $hasil.text("Nilai tidak masuk kriteria (Nilai: " + nilai + ")");
+            $hasil.css('background-color', 'gray');
+        }
+    });
+});
+</script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Mahasiswa (Bootstrap)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Form Pengisian Biodata</h4>
+        </div>
+        <div class="card-body">
+            <form id="biodataForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">NIM</label>
+                        <input type="text" class="form-control" id="nim" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="nama" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tglLahir" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Agama</label>
+                        <select class="form-select" id="agama" required>
+                            <option value="">--Pilih Agama--</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label d-block">Jenis Kelamin</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jk" id="laki" value="Laki-laki" required>
+                        <label class="form-check-label" for="laki">Laki-laki</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jk" id="perempuan" value="Perempuan">
+                        <label class="form-check-label" for="perempuan">Perempuan</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Alamat</label>
+                    <textarea class="form-control" id="alamat" rows="2" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Submit Data</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Daftar Biodata</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>NIM</th>
+                            <th>Nama</th>
+                            <th>Tgl Lahir</th>
+                            <th>JK</th>
+                            <th>Agama</th>
+                            <th>Alamat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        </tbody>
+                </table></div></div></div></div>
+
+<script>
+    document.getElementById('biodataForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Ambil value dari form
+        const nim = document.getElementById('nim').value;
+        const nama = document.getElementById('nama').value;
+        const tgl = document.getElementById('tglLahir').value;
+        const jk = document.querySelector('input[name="jk"]:checked').value;
+        const agama = document.getElementById('agama').value;
+        const alamat = document.getElementById('alamat').value;
+
+        // Tambahkan ke tabel
+        const tableBody = document.getElementById('tableBody');
+        const newRow = `<tr>
+            <td>${nim}</td>
+            <td>${nama}</td>
+            <td>${tgl}</td>
+            <td>${jk}</td>
+            <td>${agama}</td>
+            <td>${alamat}</td>
+        </tr>`;
+
+        tableBody.innerHTML += newRow;
+
+        // Kosongkan form
+        document.getElementById('biodataForm').reset();
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; font-size: 14px; }
+        .form-container {
+            width: 500px;
+            border: 3px solid #000;
+            padding: 0;
+            border-collapse: collapse;
+        }
+        .header {
+            background-color: red;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 10px; vertical-align: top; }
+        input[type="text"] { border: 1px solid #ccc; padding: 2px; }
+        .input-num { width: 25px; text-align: center; }
+        .input-full { width: 95%; }
+        .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+        .btn-container { text-align: center; padding: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2" class="header">Form Pengajuan KTP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nomor Pendaftaran</td>
+                <td>
+                    <input type="text" class="input-num">
+                    <input type="text" class="input-num">
+                    <input type="text" class="input-num">
+                    <input type="text" class="input-num">
+                    <input type="text" class="input-num">
+                    <input type="text" class="input-num">
+                </td>
+            </tr>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" class="input-full" placeholder="Nama Lengkap"></td>
+            </tr>
+            <tr>
+                <td>Alamat</td>
+                <td><textarea class="input-full" rows="2" placeholder="Alamat Lengkap"></textarea></td>
+            </tr>
+            <tr>
+                <td>Provinsi</td>
+                <td>
+                    <select>
+                        <option>Sulawesi Selatan</option>
+                        <option>Sulawesi Tenggara</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Kota</td>
+                <td>
+                    <input type="text" style="width: 80px;" placeholder="Kota"> 
+                    Kec. <input type="text" style="width: 100px;" placeholder="Kecamatan">
+                </td>
+            </tr>
+            <tr>
+                <td>Pekerjaan</td>
+                <td><input type="text" class="input-full" placeholder="Pekerjaan"></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td class="checkbox-group">
+                    <div><input type="radio" name="jk"> Pria</div>
+                    <div><input type="radio" name="jk"> Wanita</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Tempat/ Tanggal Lahir</td>
+                <td>
+                    <input type="text" style="width: 80px;" placeholder="Tempat Lahir">
+                    <input type="datetime-local" style="width: 150px;">
+                </td>
+            </tr>
+            <tr>
+                <td>Kelengkapan Berkas</td>
+                <td class="checkbox-group">
+                    <div><input type="checkbox"> FC. KK</div>
+                    <div><input type="checkbox"> Surat Pengantar</div>
+                    <div><input type="checkbox"> Pas Foto</div>
+                    <div><input type="checkbox"> Surat Domisili</div>
+                </td>
+            </tr>
+            <tr>
+                <td>File Scan</td>
+                <td><input type="file"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="button">Pengajuan</button> <button type="reset">Batal</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
