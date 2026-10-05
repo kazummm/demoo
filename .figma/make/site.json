@@ -1,0 +1,10 @@
+{
+  "description": "Generate customized content quickly by inputting prompts, enabling users to create tailored text efficiently for various needs.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
